@@ -28,10 +28,22 @@ export class OrcamentosService {
     ]
   }];
   constructor() { }
+
+  // salvar(orcamento) {
+  //   orcamento.id = this.orcamentos.length + 1;
+  //   this.orcamentos.push(orcamento);
+  //
+  // }
+
   salvar(orcamento) {
     orcamento.id = this.orcamentos.length + 1;
-    this.orcamentos.push(orcamento);
+    localStorage.setItem(orcamento.id, JSON.stringify(orcamento));//passando o id do orcamento como key
+    //e passando o objeto como "string" como valor
+    let item = JSON.parse(localStorage.getItem(orcamento.id));
+    console.log(item);
   }
+
+
   calcular(orcamento) {
     let somatorio = 0;
     for (let peca of orcamento.pecas) {

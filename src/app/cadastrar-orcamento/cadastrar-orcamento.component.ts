@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { OrcamentosService } from '../orcamentos.service';
+import {Component, OnInit} from '@angular/core';
+import {OrcamentosService} from '../orcamentos.service';
 
 @Component({
   selector: 'app-cadastrar-orcamento',
@@ -19,13 +19,15 @@ export class CadastrarOrcamentoComponent implements OnInit {
   mostrar_mensagem = false;
   total_orcamento = 0.0;
 
-  constructor(private orcamentos: OrcamentosService) { }
+  constructor(private orcamentos: OrcamentosService) {
+  }
 
   ngOnInit() {
   }
 
   adicionarMobilia() {
     this.mobilias.push({
+      id: this.mobilias.length + 1,
       tipo: this.mobilia_tipo,
       puxador: this.mobilia_puxador,
       pintura: this.mobilia_pintura,
@@ -62,5 +64,9 @@ export class CadastrarOrcamentoComponent implements OnInit {
       pecas: this.mobilias
     };
     this.total_orcamento = this.orcamentos.calcular(orcamento);
+  }
+
+  remover(mob) {
+    this.mobilias.splice(this.mobilias.findIndex(n=>n.id === mob.id), 1);
   }
 }

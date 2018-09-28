@@ -11,7 +11,7 @@
   <div>
     <label for="email">E-mail</label>
     <input type="email" id="email" name="email" [(ngModel)]="email" required>
-  </div>
+   </div>
   <h3>Peças de mobília</h3>
   <hr>
   <div>
@@ -53,7 +53,8 @@
   <hr>
   <ul>
     <li *ngFor="let mobilia of mobilias">
-      {{mobilia.tipo}} - {{mobilia.largura}}cm
+      {{mobilia.tipo}} - {{mobilia.largura}}cm <button type="button" (click)="remover(mobilia)">Remover Item</button>
+      <br>
     </li>
   </ul>
   <h3>Total do orçamento</h3>
@@ -61,6 +62,6 @@
   <div *ngIf="total_orcamento">
     {{total_orcamento}}
   </div>
-  <button type="button" (click)="mostrar_total()">Calcular</button> 
+  <button type="button" (click)="mostrar_total()">Calcular</button>
   <button>Salvar</button>
 </form>
