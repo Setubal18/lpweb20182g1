@@ -66,6 +66,10 @@ export class CadastrarOrcamentoComponent implements OnInit {
     this.total_orcamento = this.orcamentos.calcular(orcamento);
   }
 
+  /*
+  metado para remover mobilia.
+  Recebe como parametro o objeto mobilia da lista.
+   */
   remover(mob) {
     this.mobilias.splice(this.mobilias.findIndex(n=>n.id === mob.id), 1);
   }
